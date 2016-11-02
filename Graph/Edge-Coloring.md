@@ -111,7 +111,7 @@ bool msira_gries(vector<vector<int>>& matrix,vector<vector<int>>& f,map<int,set<
 
 2.多重图
 
-贪心－首次匹配颜色
+贪心－首次匹配
 
 ```
 vector<int> Greedy(vector<vector<int>>& matrix,vector<pair<int,int>>& edges,int n){
