@@ -111,6 +111,25 @@ bool msira_gries(vector<vector<int>>& matrix,vector<vector<int>>& f,map<int,set<
 
 2.多重图
 
+贪心－首次匹配颜色
+
+```
+vector<int> Greedy(vector<vector<int>>& matrix,vector<pair<int,int>>& edges,int n){
+    int cols=0;
+    vector<int> edges_col;
+    vector<set<int>> used_color(n);
+    for(pair<int,int> pair:edges){
+        int c=0;
+        while(used_color[pair.first].count(c)>0||used_color[pair.second].count(c)>0){ c++; }
+        edges_col.push_back(c);
+        used_color[pair.first].insert(c);
+        used_color[pair.second].insert(c);
+        cols=c>cols?c:cols;
+    }
+    return edges_col;
+}
+```
+
 线性规划－最大匹配
 
 ```cpp
