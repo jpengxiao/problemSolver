@@ -2,15 +2,27 @@
 
 edge chromatic number χ′\(_G_\), the maximum degree Δ\(_G_\), and the multiplicity μ\(_G_\)
 
-边着色问题\(最优颜色数\)是NP问题，需要放松一个或多个标准：
+边着色问题\(最优颜色数\)是NP问题，暴力解需要指数时间
 
-```
-仅工作在图的子集，特殊的图；使用超出最优的颜色数；并不是所有时候都是多项式时间
-```
+需要放松一个或多个标准：
 
-2分图或多重图的最大度数Δ, 最优颜色数就是Δ; 平面图 Δ ≥ 7,最优颜色数就是Δ
+1.图的子集，特殊的图
 
-Maris&Gries使用Δ + 1种颜色进行着色
+  2分图或多重图的最大度数Δ, 最优颜色数就是Δ
+
+  平面图 Δ ≥ 7,最优颜色数就是Δ
+
+2.使用超出最优的颜色数
+
+  Maris&Gries使用Δ+1种颜色进行着色
+
+  Karloff&Shmoys是并行算法，最多用3Δ\/2种颜色进行着色
+
+  贪心首次匹配算法是最优在线算法，最多用2Δ-1种颜色进行着色
+
+3.并不是所有时候都是多项式时间
+
+  线性规划算法最大匹配算法，Δ+sqrt\(Δ\/2\)种颜色进行着色  
 
 
 
@@ -125,7 +137,7 @@ bool msira_gries(vector<vector<int>>& matrix,vector<vector<int>>& f,map<int,set<
 
 2.多重图
 
-贪心－首次匹配
+贪心－首次匹配，最优在线算法
 
 ```
 vector<int> Greedy(vector<vector<int>>& matrix,vector<pair<int,int>>& edges,int n){
