@@ -1,4 +1,4 @@
-```
+```cpp
 class BitMap{
 public:
     char *bitmap;
@@ -17,7 +17,6 @@ public:
             this->size = size;
         }
     }
-    
     int bitmapSet(int index,bool flag){
         if (index >= size) {
             return 0;
@@ -27,13 +26,24 @@ public:
             return 1;
         }
     }
-    
     int bitmapGet(int index){
         if (index >= size) {
             return 0;
         }else{
             return (bitmap[index/8] & (unsigned char)(0x1<<(index%8))) > 0 ? 1 : 0;
         }
+    }
+    bool bitmapSearch(int k){
+        int left=0,right=0;
+        while(right!=size){
+            if(bitmapGet(right)!=0){
+                left=right+1;
+            }else if(right-left+1==k){
+                return true;
+            }
+            right++;
+        }
+        return false;
     }
 };
 ```
